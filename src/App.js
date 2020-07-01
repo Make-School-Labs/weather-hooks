@@ -1,25 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
+// Need this to add middleware
+import { createStore, applyMiddleware } from 'redux'
+// Use redux-thunk to handle async actions
+import thunk from 'redux-thunk'
+import { Provider } from 'react-redux'
 import './App.css';
+import Weather from './Weather'
+import rootReducer from './reducers'
+import WeatherDisplay from './WeatherDisplay'
+
+// Create the store with middleware
+const store = createStore(rootReducer, applyMiddleware(thunk))
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <header className="App-header">
+          <WeatherDisplay />
+          <Weather />
+        </header>
+      </div>
+    </Provider>
   );
 }
 
