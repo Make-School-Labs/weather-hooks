@@ -1,6 +1,7 @@
 import React from 'react'
 // This is a react-redux hook 
 // Use it instead of connect
+// like mapStateToProps
 import { useSelector } from 'react-redux'
 
 export default function WeatherDisplay(props) {

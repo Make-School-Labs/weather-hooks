@@ -2,30 +2,20 @@
 import React, { useState, useCallback } from 'react';
 // react-redux hooks 
 import { useDispatch } from 'react-redux'
-import { loadWeather } from './actions'
+import { loadWeather, orderBurger } from './actions'
 
 function Weather(props) {
   // Use state to track zip input
-  const [ zip, setZip ] = useState('')
-
-  // Alternatively use callback to handle submit
-  // const handleSubmit = useCallback((e) => {
-  //   e.preventDefault()
-  //   console.log(e.target.elements)
-  //   const zip = e.target.elements.zip.value
-  //   dispatch(loadWeather(zip))
-  // })
+  const [ zip, setZip ] = useState('90210')
 
 	const dispatch = useDispatch() // Get the dispatcher
 
     return (
       <div className="App">
         <form 
-          // onSubmit={handleSubmit}
           onSubmit={e => {
             e.preventDefault()
-            // Dispatch an action
-            dispatch(loadWeather(zip))
+            dispatch( loadWeather(zip) )
           }}
           >
 
@@ -38,7 +28,7 @@ function Weather(props) {
             placeholder="enter zip"
           />
 
-          <button type="submit">Submit</button>
+          <button name="submit" type="submit">Submit</button>
 					
         </form>
       </div>

@@ -17,8 +17,8 @@ function App() {
     <Provider store={store}>
       <div className="App">
         <header className="App-header">
-          <WeatherDisplay />
           <Weather />
+          <WeatherDisplay />
         </header>
       </div>
     </Provider>
