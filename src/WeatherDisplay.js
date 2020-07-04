@@ -4,17 +4,16 @@ import React from 'react'
 // like mapStateToProps
 import { useSelector } from 'react-redux'
 
-export default function WeatherDisplay(props) {
+export default function WeatherDisplay() {
 	// Use this instead of mapStateToProps
 	const data = useSelector(state => state.weather)
-	
-	if (data === null) {
-		return null
-	} else if (data.cod != '200') {
-		return <div>{data.message}</div>
-	}
 
 	console.log(data)
+	if (data === null) {
+		return null
+	} else if (data.cod != 200) { 
+		return <div>{data.message}</div>
+	}
 
 	const { name, cod, dt, sys, wind, clouds, coord } = data
 	const { main, description, icon } = data.weather[0]
@@ -32,3 +31,5 @@ export default function WeatherDisplay(props) {
 		</div>
 	)
 }
+
+// 

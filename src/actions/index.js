@@ -1,14 +1,6 @@
 export const LOAD_WEATHER = 'LOAD_WEATHER'
 export const WEATHER_SUCCESS = 'WEATHER_SUCCESS'
 export const WEATHER_ERROR = 'WEATHER_ERROR'
-export const ORDER_BURGER = 'ORDER_BURGER'
-
-export const orderBurger = (options) => {
-	return {
-		type: ORDER_BURGER, 
-		payload: options
-	}
-}
 
 export const weatherSuccess = (data) => {
 	return {

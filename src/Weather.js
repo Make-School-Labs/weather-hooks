@@ -1,10 +1,10 @@
 // Use useState hook
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 // react-redux hooks 
 import { useDispatch } from 'react-redux'
-import { loadWeather, orderBurger } from './actions'
+import { loadWeather } from './actions'
 
-function Weather(props) {
+function Weather() {
   // Use state to track zip input
   const [ zip, setZip ] = useState('90210')
 
@@ -36,5 +36,3 @@ function Weather(props) {
 }
 
 export default Weather;
-
-
